@@ -26,7 +26,7 @@ class User {
     userBody.innerHTML =
     `<h2> Welcome ${USERNAME}!
     <br></br>
-    <button id="quiz-button" class="button" >Create an Animal Quiz</button>
+    <button id="quiz-button" class="button" >Create an Animal Quiz </button>
     </h2>`
    EventListener.quizListener();
   }

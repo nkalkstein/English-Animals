@@ -7,19 +7,7 @@ class Question {
 
 
   static createQuestion(){
-      // const arr = []
-    // while(arr.length < 4){
-    //     var randomnumber = Math.floor(Math.random()*18) + 1;
-    //     if(arr.indexOf(randomnumber) > -1) continue;
-    //     arr[arr.length] = randomnumber;
-    //   }
-    //
-    //   const arr2 = []
-    //   while(arr2.length < 4){
-    //       var random = Math.floor(Math.random()*4) + 1;
-    //       if(arr.indexOf(random) > -1) continue;
-    //       arr2[arr2.length] = random;
-    //   }
+
 
 
    const all = Animal.all;
@@ -28,31 +16,41 @@ class Question {
       // const randAnimal2 = all[(array[(array2[2])]]
       // const randAnimal3 = all[(array[(array2[3])]]
     const userBody = document.getElementById("user-div");
-    const uniques = chance.unique(chance.natural, 4, {min: 0, max: 16});
+    const uniques = chance.unique(chance.natural, 4, {min: 0, max: 24});
     const uniq = chance.unique(chance.natural, 1, {min: 0, max: 3});
-    console.log(uniq)
     userBody.innerHTML =
        `<div>
-       <h2> ${all[uniques[uniq]].name} </h2>
+       <h2 id="animal" alt="${all[uniques[uniq]].name}"> ${all[uniques[uniq]].name} </h2>
+       <h3>Click the Correct Animal</h3>
        <br></br>
        <br></br>
-       <a href="javascript:alert('This is a ${all[uniques[0]].name}!')">
+       <a href="javascript:alert('This is a ${all[uniques[0]].name}!')" id="0" alt="${all[uniques[0]].name}">
      <img src= "${all[uniques[0]].image}" style="position:absolute;top:230px;right:300px;width:250px;height:250px;border:0">
        </a>
-       <a href="javascript:alert('This is a ${all[uniques[1]].name}!')">
+       <a href="javascript:alert('This is a ${all[uniques[1]].name}!')" id="1" alt="${all[uniques[1]].name}">
        <img src= "${all[uniques[1]].image}" style="position:absolute;bottom:50px;right:300px;width:250px;height:250px;border:0">
          </a>
          </a>
-         <a href="javascript:alert('This is a ${all[uniques[2]].name}!')">
+         <a href="javascript:alert('This is a ${all[uniques[2]].name}!')" id="2" alt="${all[uniques[2]].name}">
        <img src= "${all[uniques[2]].image}" style="position:absolute;top:230px;left:300px;width:250px;height:250px;border:0">
          </a>
          </a>
-         <a href="javascript:alert('This is a ${all[uniques[3]].name}!')">
+         <a href="javascript:alert('This is a ${all[uniques[3]].name}!')" id="3" alt="${all[uniques[3]].name}">
        <img src= "${all[uniques[3]].image}" style="position:absolute;bottom:50px;left:300px;width:250px;height:250px;border:0">
          </a>
-     </div>`
+         <h2>
+         <button id="quiz-button" class="button" style = float:right;> NEXT </button>
+         </h2>
+        </div>`
+        EventListener.quizListener();
+        EventListener.rightListener();
 
    }
+
+   // static renderCorrect(animalId){
+   //   const chosenAnimal = document.getElementById(`${animalId}`);
+   //   chosenAnimal.href = "javascript:alert('yeah')"
+   // }
 }
 
   // static renderImages() {
